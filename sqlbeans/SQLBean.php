@@ -293,6 +293,8 @@ abstract class SQLBean {
 			$e = new QueryFailedException($info[2]);
 			$e->errorInfo = $info;
 			throw $e;
+		} else {
+			$this->lastInsertId = $query->lastInsertId();
 		}
 		return true;
 	}
